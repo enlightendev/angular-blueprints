@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Address Book</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-controller="PeopleController">
+
+    <h1>Address Book</h1>
+
+    <div class="wrapper">
+        <div class="contact-item" ng-repeat="person in people | orderBy:'name'">
+            <div class="name">{{person.name}} - {{person.phone}}</div>
+            <span class="city">{{person.city}} </span>
+
+        </div>
+    </div>
+
+    <script src="lib/angular.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+</body>
+</html>
