@@ -8,6 +8,15 @@
 
     <h1>Address Book</h1>
 
+    <!-- We bind these three textboxes to a model object called newPerson -->
+    <div class="wrapper">
+        <h2>Add a Contact</h2>
+        Name: <input type="text" ng-model="newPerson.name"></input>
+        Phone: <input type="text" ng-model="newPerson.phone"></input>
+        City: <input type="text" ng-model="newPerson.city"></input>
+        <button ng-click="save()">Save</button>
+    </div>
+
     <div class="wrapper">
         <div class="contact-item" ng-repeat="person in people | orderBy:'name'">
             <div class="name">{{person.name}} - {{person.phone}}</div>
