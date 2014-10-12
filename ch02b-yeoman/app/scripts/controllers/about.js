@@ -12,6 +12,7 @@ angular.module('ch02bYeomanApp')
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+      'Java'
     ];
   });
