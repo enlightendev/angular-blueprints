@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
 }
 
@@ -76,4 +76,19 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+
+/* */
+.carousel-image{
+    width: 100%;
+}
+
+.hero-unit {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
 }
