@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap' //Now, angular-bootstrap will be available for use across our application.
   ])
   .config(function ($routeProvider) {
     $routeProvider
