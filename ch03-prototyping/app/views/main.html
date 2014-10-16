@@ -12,3 +12,11 @@
     <h1>Welcome to Healthy Living</h1>
     <p>This is a Rapid Prototype demo on how you can use AngularJS with Angular UI and Bootstrap to quickly build a clickable prototype that can be shown to clients</p>
 </div>
+
+<div class="row-fluid">
+    <div class="col-md-4" ng-repeat="block in content">
+        <img class="img-circle" ng-src="{{block.img}}"> <!-- using ng-src -->
+        <h3>{{block.title}}</h3>
+        <p>{{block.summary}} </p>
+    </div>
+</div>
