@@ -20,6 +20,9 @@ angular.module('ch03PrototypingApp')
         $scope.gridOptions = {
             data: 'subscribers',
             showGroupPanel: true,
+            enableCellSelection: true,
+            enableRowSelection: false,
+            enableCellEdit: true,
             columnDefs: [
                 {field:'no', displayName:'No.'},
                 {field:'name', displayName:'Name'},
