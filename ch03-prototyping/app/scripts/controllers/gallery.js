@@ -28,6 +28,13 @@ angular.module('ch03PrototypingApp')
             "eget consectetur quam. Sed at quam ut dolor varius condimentum et sit amet odio. "
 
 
+        $scope.rate = 0;
+
+        $scope.max = 10;
+
+        $scope.isReadonly = false;
+
+
         $scope.addPics = function (i) {
 
             pictures.push({
