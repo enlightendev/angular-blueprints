@@ -37,7 +37,7 @@ angular.module('ch03PrototypingApp')
 
 
         // Model for the 3 content blocks
-        var baseURL='http://lorempixel.com/200/200/';
+        baseURL='http://lorempixel.com/200/200/';
 
         $scope.content = [
             {
