@@ -19,9 +19,11 @@ angular.module('ch03PrototypingApp')
 
         $scope.gridOptions = {
             data: 'subscribers',
+            showGroupPanel: true,
             columnDefs: [
                 {field:'no', displayName:'No.'},
                 {field:'name', displayName:'Name'},
+                {field:'userType', displayName:'Subscription Type'},
                 {field:'loyalty', displayName:'Loyalty Score'},
                 {field:'joinDate', displayName:'Date of Joining'}]
         };
