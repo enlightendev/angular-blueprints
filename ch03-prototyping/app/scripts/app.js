@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap' //Now, angular-bootstrap will be available for use across our application.
+    'ui.bootstrap', //Now, angular-bootstrap will be available for use across our application.
+    'ngGrid'
   ])
   .config(function ($routeProvider) {
 
@@ -42,6 +43,10 @@ angular
       .when('/gallery', {
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl'
+      })
+      .when('/subscribers', {
+        templateUrl: 'views/subscribers.html',
+        controller: 'SubscribersCtrl'
       })
       .otherwise({
         redirectTo: '/'
