@@ -20,6 +20,9 @@ angular.module('app.directives', [])
          */
         scope.drawGraph = function (data) {
 
+
+          chart.selectAll('*').remove();
+
           var barHeight = 20,
             barGap = 5,
             graphOrigin = 150,
@@ -78,6 +81,13 @@ angular.module('app.directives', [])
               return d.amount;
             });
 
+        };
+
+        /**
+         * We wrap our function with scope.$apply() to force $digest to rerun and update the values that have changed.
+         */
+        $window.onresize = function() {
+          scope.$apply(scope.drawGraph(scope.data));
         };
 
         scope.drawGraph(scope.data);

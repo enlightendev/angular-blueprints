@@ -126,3 +126,21 @@ button:disabled {
 }
 
 /* VIEW EXPENSES END */
+
+
+/* MEDIA QUERIES START*/
+
+/*
+checks if the screen width is 680 px or greater, and if this condition is true, then it would apply the CSS for the #summary and #details divs.
+
+float the <div> elements to the left and set their width to 49% of the screen size, along with a padding of 0.25 em.
+The reason we set the width of 49% instead of 50% is to account for the padding space.
+*/
+@media all and (min-width: 680px){
+  #summary,#details{
+    float:left;
+    width:49%;
+    padding: 0.25em;
+  }
+}
+/* MEDIA QUERIES END*/
