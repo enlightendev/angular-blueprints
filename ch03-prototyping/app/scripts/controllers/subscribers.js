@@ -8,7 +8,7 @@
  * Controller of the ch03PrototypingApp
  */
 angular.module('ch03PrototypingApp')
-    .controller('SubscribersCtrl', function ($scope,$http) {
+    .controller('SubscribersCtrl', function ($scope,$http,$modal) {
 
         /**
          * The $http service will return a promise that contains two methods, namely success and error.
@@ -20,9 +20,9 @@ angular.module('ch03PrototypingApp')
         $scope.gridOptions = {
             data: 'subscribers',
             showGroupPanel: true,
-            enableCellSelection: true,
-            enableRowSelection: false,
-            enableCellEdit: true,
+            enableCellSelection: false,
+            enableRowSelection: true,
+            enableCellEdit: false,
             columnDefs: [
                 {field:'no', displayName:'No.'},
                 {field:'name', displayName:'Name'},
@@ -31,4 +31,37 @@ angular.module('ch03PrototypingApp')
                 {field:'joinDate', displayName:'Date of Joining'}]
         };
 
+        /**
+         * $modal service will create its own scope within the parent scope.
+         */
+        $scope.showModal=function () {
+            $scope.newUser={};
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: 'views/partials/add-user.html',
+                    controller:'AddNewUserCtrl',
+                    resolve: {
+                        newUser: function () {
+                            return $scope.newUser;
+                        }
+                    }
+                });
+        };
+
+    })
+
+    /**
+     *
+     */
+    .controller('AddNewUserCtrl', function ($scope, $modalInstance, newUser) {
+
+        $scope.newUser=newUser;
+
+        $scope.saveNewUser=function(){
+            $modalInstance.close(newUser);
+        };
+
+        $scope.cancel =function(){
+            $modalInstance.dismiss('cancel');
+        };
     });

@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -78,38 +78,20 @@ body {
   }
 }
 
-
-/* */
-.carousel-image{
-    width: 100%;
+.pin-layout{
+  column-count: 4;
+  column-gap: 0px;
+  -moz-column-count: 4;
+  -moz-column-gap: 0px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 0px;
 }
 
-.hero-unit {
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
-}
-
-.thumbnails img{
-    width: 100%
-}
-
-.gridStyles{
-    width:940px;
-    height:300px;
-}
-
-.ngRow.even {
-    background: AliceBlue;
-}
-.ngRow.odd {
-    background: YellowGreen;
-}
-
-/* mode form */
-.modal-body input{
-    display:block;
+.thumbnail{
+  display: inline-block;
+  margin:5px;
+  padding:5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #ccc;
+  background: #fff;
 }
