@@ -1,79 +1,50 @@
-/* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  color: #f9f9f9;
+  background: #333;
+  height: 100%;
+
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; /* set the z-index parameter to a negative value to make sure that the image loads under the text. */
+  background: #333;
+  opacity: 0.3;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+h1 {
+  font-size: 2.5em;
+  font-weight: 100;
+  margin-left: 5%;
+
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
+/* MENU START */
+/*
+Sets the links aligned from the bottom.
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+Note that we are using em instead of px as the unit of measurement to define the sizes, widths, and so on.
+This is important, because we want the sizes to be in proportion to the device it is viewed on.
+*/
+.menu {
+  list-style: none;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+  position: absolute;
+  bottom: 1em;
 }
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+.menu li {
+  margin: 2em 1em;
 }
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.menu a {
+  color: #f9f9f9;
+  font-size: 2em;
+  text-decoration: none
 }
