@@ -5,11 +5,11 @@
   <select ng-model="expense.category" ng-options="category for category in categories"></select>
 
   <label>Amount:</label>
-  <input type="number" ng-model="expense.amount"></input>
+  <input required type="number" ng-model="expense.amount"></input>
 
   <label>Description:</label>
-  <input type="text" ng-model="expense.description"></input>
+  <input type="text" ng-minlength=10 required ng-pattern="/^[a-zA-Z 0-9]*$/" ng-model="expense.description"></input>
 
-  <button ng-click="submit()">Submit</button>
+  <button ng-disabled="addForm.$pristine || addForm.$dirty && addForm.$invalid" ng-click="submit()">Submit</button>
 
 </form>
