@@ -1,6 +1,8 @@
+'use strict';
+
 angular.module('app.services', [])
 
-  .value('categoryList', ["Food", "Fuel", "Grocery", "Entertainment"])
+  .value('categoryList', ['Food', 'Fuel', 'Grocery', 'Entertainment'])
 
   .factory('expenseService', function () {
 
@@ -45,7 +47,7 @@ angular.module('app.services', [])
          */
         Object.keys(localStorage).forEach(function (key) {
 
-          if (key.substring(0, prefixLength) == prefix) {
+          if (key.substring(0, prefixLength) === prefix) {
             var item = window.localStorage[key];
 
             /**
@@ -58,7 +60,30 @@ angular.module('app.services', [])
         });
 
         return expenses;
+      },
+
+      getCategoryTotal: function(category){
+
+        var categoryTotal = 0;
+        var prefixLength = prefix.length;
+
+        Object.keys(localStorage).forEach(function (key) {
+
+          if (key.substring(0, prefixLength) === prefix) {
+            var item = window.localStorage[key];
+
+            /**
+             * JSON.parse to convert our stringified data back into JSON format.
+             */
+            item = JSON.parse(item);
+
+            if (item.category === category) {
+              categoryTotal += parseFloat(item.amount); //need to use parseFloat to convert our numbers from string to a float value before we total them up.
+            }
+          }
+        });
+
+        return categoryTotal;
       }
-    }
-  })
-;
+    };
+  });
