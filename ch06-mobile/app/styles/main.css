@@ -25,7 +25,6 @@ h1 {
 
 }
 
-
 /* MENU START */
 /*
 Sets the links aligned from the bottom.
@@ -40,9 +39,11 @@ This is important, because we want the sizes to be in proportion to the device i
   position: absolute;
   bottom: 1em;
 }
+
 .menu li {
   margin: 2em 1em;
 }
+
 .menu a {
   color: #f9f9f9;
   font-size: 2em;
@@ -53,18 +54,18 @@ This is important, because we want the sizes to be in proportion to the device i
 
 /* FORMs START */
 
-.page-slide input , .page-slide select{
+.page-slide input, .page-slide select {
   display: block;
-  padding:0.75em;
+  padding: 0.75em;
   margin: .5em 0 1em 0;
   width: 90%;
-  font-size:1em;
+  font-size: 1em;
   border: thin solid #ccc;
 }
 
-button{
-  background: #3E7504 ;
-  color:#CCFF96;
+button {
+  background: #3E7504;
+  color: #CCFF96;
   border: thin solid #3E7504;
   padding: 3px 8px;
   font-size: 1.2em;
@@ -73,21 +74,55 @@ button{
 /* add form validation css - start */
 
 #addForm .ng-pristine {
-  background: none!important; /* using !important to force.ng-pristine to override the .ng-invalid class when the form is just loaded. */
+  background: none !important; /* using !important to force.ng-pristine to override the .ng-invalid class when the form is just loaded. */
 }
+
 #addForm .ng-dirty {
-  background:#FAC8C8;
+  background: #FAC8C8;
 }
+
 #addForm .ng-valid {
   background: #E8FAC8
 }
+
 #addForm .ng-invalid {
   background: #FAC8C8
 }
+
 button:disabled {
   background: #ccc;
-  color:#aaa;
+  color: #aaa;
 }
+
 /* add form validation css - end */
 
 /* FORMS END */
+
+/* VIEW EXPENSES START */
+.exp-details {
+  clear: both;
+}
+
+.exp-details > div {
+  float: left;
+  padding: 0.5em 0.2em;
+  border-bottom: thin solid #eaeaea;
+}
+
+.exp-details .col-sm-1 {
+  width: 5%;
+}
+
+.exp-details .col-sm-2 {
+  width: 20%;
+}
+
+.exp-details .col-sm-3 {
+  width: 25%;
+}
+
+.exp-details .col-sm-4 {
+  width: 40%;
+}
+
+/* VIEW EXPENSES END */
