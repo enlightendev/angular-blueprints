@@ -48,3 +48,26 @@ This is important, because we want the sizes to be in proportion to the device i
   font-size: 2em;
   text-decoration: none
 }
+
+/* MENU END */
+
+/* FORMs START */
+
+.page-slide input , .page-slide select{
+  display: block;
+  padding:0.75em;
+  margin: .5em 0 1em 0;
+  width: 90%;
+  font-size:1em;
+  border: thin solid #ccc;
+}
+
+button{
+  background: #3E7504 ;
+  color:#CCFF96;
+  border: thin solid #3E7504;
+  padding: 3px 8px;
+  font-size: 1.2em;
+}
+
+/* FORMS END */
