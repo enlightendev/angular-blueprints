@@ -15,19 +15,29 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'app.controllers'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
+  .config(['$routeProvider',
+    function ($routeProvider) {
+
+      $routeProvider.when('/', {
+        templateUrl: 'views/partials/home.html',
+        controller: 'HomeCtrl'
+      });
+
+      $routeProvider.when('/add-expense', {
+        templateUrl: 'views/partials/add-expense.html',
+        controller: 'AddExpenseCtrl'
+      });
+
+      $routeProvider.when('/view-summary', {
+        templateUrl: 'views/partials/view-summary.html',
+        controller: 'ViewSummaryCtrl'
+      });
+
+      $routeProvider.otherwise({
         redirectTo: '/'
       });
-  });
+    }
+  ]);
