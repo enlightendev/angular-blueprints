@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -26,6 +27,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Make sure that app.use('/api', api); is called before app.use('/', routes);.
+// This will ensure that the /api routes get higher priority than the others.
+app.use('/api', api);
 app.use('/', routes);
 app.use('/users', users);
 
