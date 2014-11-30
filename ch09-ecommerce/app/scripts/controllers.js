@@ -9,11 +9,35 @@
  */
 angular.module('App')
 
-    .controller('AppController', function ($scope, categoryService) {
+    .controller('AppController', function ($scope, categoryService, Facebook, authService) {
 
         $scope.categories = categoryService.getCategories();
         $scope.user = {};
         $scope.shoppingBasket = [ ];
+
+        Facebook.getLoginStatus(function(response) {
+
+            if (response.status === 'connected') {
+                authService.getUserInfo().then(function(data) {
+                    $scope.user = data;
+                });
+            } else {
+                Facebook.login(function(response){
+                    if (response.authResponse) {
+                        //Token, Login Status can be grabbed from response.authResponse
+                        console.log('User logged in.');
+
+                        authService.getUserInfo().then(function(data) {
+                            $scope.user = data;
+                        });
+
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                });
+            };
+
+        });
 
     })
 

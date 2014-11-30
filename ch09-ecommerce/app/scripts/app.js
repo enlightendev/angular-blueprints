@@ -16,9 +16,10 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'ui.router'
+        'ui.router',
+        'facebook'
     ])
-    .config(function ($stateProvider) {
+    .config(function ($stateProvider, FacebookProvider) {
 
         $stateProvider.state('add', {
             url: '/add',
@@ -28,7 +29,7 @@ angular
 
         $stateProvider.state('category', {
             url: '/:category',
-            templateUrl: 'views/partials/products.html',
+            templateUrl: 'views/products.html',
             controller: 'ProductsController'
         });
 
@@ -45,5 +46,7 @@ angular
             templateUrl: 'views/partials/products.details.html',
             controller: 'ProductDetailsController'
         });
+
+        FacebookProvider.init('1508364992769673');
 
     });

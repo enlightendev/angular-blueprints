@@ -10,4 +10,20 @@ angular.module('App')
             }
         };
 
-    });
+    })
+
+    .factory('authService', function ($q, Facebook) {
+
+        return {
+
+            getUserInfo: function () {
+                var d = $q.defer();
+                Facebook.api('/me', function (response) {
+                    d.resolve(response);
+                });
+                return d.promise;
+            }
+        };
+
+    })
+;
