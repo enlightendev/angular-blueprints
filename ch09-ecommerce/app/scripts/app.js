@@ -19,7 +19,8 @@ angular
         'ui.router',
         'facebook'
     ])
-    .config(function ($stateProvider, FacebookProvider) {
+
+    .config(function ($stateProvider, FacebookProvider, AWSserviceProvider) {
 
         $stateProvider.state('add', {
             url: '/add',
@@ -49,4 +50,10 @@ angular
 
         FacebookProvider.init('1508364992769673');
 
-    });
+        AWSserviceProvider.setRoleArn('arn:aws:iam::255856919679:role/garageCommerceUser');
+        AWSserviceProvider.setRegion('us-east-1');
+        AWSserviceProvider.setS3Bucket('ed-ngblueprints-ch09');
+        AWSserviceProvider.setDynamoTableName('garage-commerce');
+
+    })
+;

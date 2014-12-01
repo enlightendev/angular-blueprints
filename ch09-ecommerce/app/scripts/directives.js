@@ -1,22 +1,24 @@
 'use strict';
 
 angular.module('App')
-    .directive('facebookCheck', ['Facebook',
-        function (Facebook) {
+    .directive('facebookCheck', function (Facebook, authServiceFactory, $log, AWSservice) {
 
-            return {
-                link: function (scope, elements, attrs) {
+        return {
+            link: function (scope, elements, attrs) {
 
-                    scope.login = function () {
-                        Facebook.login();
-                    };
+                scope.login = function () {
 
-                    scope.logout = function () {
-                        Facebook.logout();
-                    };
-                },
+                    Facebook.login(function (response) {
 
-                templateUrl: 'views/directives/facebook-check.html'
-            };
-        }
-    ]);
+                    });
+                };
+
+                scope.logout = function () {
+                    Facebook.logout();
+                };
+            },
+
+            templateUrl: 'views/directives/facebook-check.html'
+        };
+    }
+);

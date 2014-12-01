@@ -9,30 +9,46 @@
  */
 angular.module('App')
 
-    .controller('AppController', function ($scope, categoryService, Facebook, authService) {
+    /**
+     * this controller is our root scope: <body ng-app="App" ng-controller="AppController">
+     */
+    .controller('AppController', function ($scope, categoryServiceFactory, Facebook, authServiceFactory, $log, AWSservice) {
 
-        $scope.categories = categoryService.getCategories();
+        $scope.categories = categoryServiceFactory.getCategories();
         $scope.user = {};
         $scope.shoppingBasket = [ ];
 
         Facebook.getLoginStatus(function(response) {
 
             if (response.status === 'connected') {
-                authService.getUserInfo().then(function(data) {
+                authServiceFactory.getUserInfo().then(function(data) {
                     $scope.user = data;
                 });
             } else {
                 Facebook.login(function(response){
-                    if (response.authResponse) {
-                        //Token, Login Status can be grabbed from response.authResponse
-                        console.log('User logged in.');
 
-                        authService.getUserInfo().then(function(data) {
+                    if (response.authResponse) {
+
+                        authServiceFactory.getUserInfo().then(function(data) {
                             $scope.user = data;
                         });
 
+                        //Initialize AWS
+                        var token = response.authResponse.accessToken;
+
+                        //Token, Login Status can be grabbed from response.authResponse
+                        $log.info('User logged in: token = ' + token);
+
+                        AWSservice.initializeAWS(token).then(
+                            function(data) {
+                                $log.info('Initialized AWS with above token: data = ');
+                                $log.info(data);
+                            });
+
                     } else {
+
                         console.log('User cancelled login or did not fully authorize.');
+
                     }
                 });
             };
@@ -52,12 +68,12 @@ angular.module('App')
 
         $scope.productsListing = [{
             productId: '123',
-            title: ' Baby Rattles',
+            title: 'Video Game',
             price: 2,
             userName: 'John Doe'
         }, {
             productId: '456',
-            title: ' Kiddy Laptop',
+            title: 'Laptop',
             price: 12,
             userName: 'Sandy Peters'
         }];
@@ -70,7 +86,7 @@ angular.module('App')
         $scope.id = $stateParams.id;
 
         $scope.product = {
-            'title': 'Kiddy Laptop',
+            'title': 'Laptop',
             'description': 'lorem lipsum do re me.',
             'price': 12,
             'userName': 'Sandy Peters'
